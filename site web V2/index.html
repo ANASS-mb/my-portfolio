@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nouveau Tech - حلول رقمية متكاملة لتسيير المطاعم، محطات الوقود، والتسويق الإلكتروني.">
+    <title>Nouveau Tech | حلول رقمية متكاملة</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --black: #0a0a0a;
+            --dark: #1a1a1a;
+            --darker: #111111;
+            --gold: #d4af37;
+            --gold-light: #f4e4a6;
+            --gold-gradient: linear-gradient(135deg, #d4af37, #f4e4a6, #b8962e);
+            --white: #ffffff;
+            --gray: #cccccc;
+            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        /* التحكم في اللغات عبر CSS (أفضل أداءً) */
+        :root:lang(ar) .fr-text { display: none !important; }
+        :root:lang(fr) .ar-text { display: none !important; }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        :root:lang(fr) body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* --- Animations --- */
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        @keyframes goldShine { 0% { background-position: -200%; } 100% { background-position: 200%; } }
+        @keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); } 50% { box-shadow: 0 0 0 20px rgba(212, 175, 55, 0); } }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .animate-on-scroll.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Header & Nav - Dynamic Sticky Header المحسن --- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            /* الحالة الافتراضية: شفاف تماماً */
+            background: transparent;
+            backdrop-filter: blur(0px);
+            border-bottom: none;
+            transition: var(--transition);
+        }
+
+        /* الحالة النشطة عند التمرير */
+        header.scrolled {
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        /* تأثير خاص على الشعار عند التمرير */
+        .logo {
+            font-size: 26px;
+            font-weight: 700;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: goldShine 3s linear infinite;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        /* الشعار أكثر وضوحاً عند التمرير */
+        header.scrolled .logo {
+            text-shadow: 0 2px 10px rgba(212, 175, 55, 0.3);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            /* تأثير خفيف في الحالة الشفافة */
+            opacity: 0.8;
+        }
+
+        header.scrolled .nav-links a {
+            opacity: 1;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-controls { display: flex; align-items: center; gap: 20px; }
+
+        .lang-toggle {
+            background: transparent;
+            border: 2px solid rgba(212, 175, 55, 0.6);
+            color: var(--gold);
+            padding: 6px 18px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        header.scrolled .lang-toggle {
+            border-color: var(--gold);
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .lang-toggle:hover {
+            background: var(--gold);
+            color: var(--black);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 5% 80px;
+            background: radial-gradient(ellipse at center, var(--dark) 0%, var(--black) 70%);
+            position: relative;
+        }
+
+        .hero::before, .hero::after {
+            content: '';
+            position: absolute;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .hero::before { width: 600px; height: 600px; animation: float 6s ease-in-out infinite; }
+        .hero::after { width: 400px; height: 400px; animation: float 8s ease-in-out infinite reverse; }
+
+        .hero-content {
+            max-width: 900px;
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .hero h1 .gold-text {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .slogan {
+            font-size: 1.6rem;
+            color: var(--gray);
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .hero p.desc {
+            font-size: 1.1rem;
+            color: var(--gray);
+            margin-bottom: 50px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* --- Buttons --- */
+        .cta-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: none;
+        }
+
+        .btn-gold {
+            background: var(--gold-gradient);
+            color: var(--black);
+            animation: pulse 2s infinite;
+        }
+
+        .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4); }
+
+        .btn-outline { background: transparent; border: 2px solid var(--gold); color: var(--gold); }
+        .btn-outline:hover { background: var(--gold); color: var(--black); transform: translateY(-3px); }
+
+        .btn-whatsapp { background: #25D366; color: white; }
+        .btn-whatsapp:hover { background: #128C7E; transform: translateY(-3px); box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3); }
+
+        /* --- Sections Global --- */
+        .section-padding { padding: 100px 5%; }
+        .bg-dark { background: var(--dark); }
+        .bg-black { background: var(--black); }
+
+        .section-title { text-align: center; margin-bottom: 60px; }
+        .section-title h2 { font-size: 2.5rem; margin-bottom: 15px; }
+        .section-title .gold-line {
+            width: 80px; height: 4px; background: var(--gold-gradient);
+            margin: 0 auto; border-radius: 2px;
+        }
+
+        /* --- Services --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: linear-gradient(145deg, var(--darker), #222);
+            padding: 40px 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .service-card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px;
+            background: var(--gold-gradient); transform: scaleX(0); transform-origin: right;
+            transition: transform 0.4s ease;
+        }
+        :root:lang(fr) .service-card::before { transform-origin: left; }
+
+        .service-card:hover {
+            transform: translateY(-10px); border-color: var(--gold);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        .service-card:hover::before {
+            transform: scaleX(1); transform-origin: left;
+        }
+        :root:lang(fr) .service-card:hover::before { transform-origin: right; }
+
+        .service-icon {
+            font-size: 45px; margin-bottom: 25px;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+
+        .service-card h3 { font-size: 1.4rem; margin-bottom: 15px; }
+        .service-card p { color: var(--gray); font-size: 0.95rem; margin-bottom: 20px; }
+        .service-card ul { list-style: none; margin-bottom: 25px; }
+        .service-card ul li { padding: 8px 0; color: var(--gray); font-size: 0.95rem; display: flex; gap: 10px; align-items: center; }
+        .service-card ul li i { color: var(--gold); font-size: 0.8rem; }
+
+        /* --- Why Us Section --- */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .feature-item i {
+            font-size: 40px; color: var(--gold); margin-bottom: 20px;
+        }
+        .feature-item h4 { font-size: 1.2rem; margin-bottom: 10px; }
+        .feature-item p { color: var(--gray); font-size: 0.95rem; }
+
+        /* --- Contact Section --- */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .contact-info { display: flex; flex-direction: column; gap: 25px; }
+        .contact-item {
+            display: flex; align-items: center; gap: 20px;
+            padding: 25px; background: var(--darker);
+            border-radius: 15px; border: 1px solid rgba(212, 175, 55, 0.1);
+            transition: var(--transition);
+        }
+        .contact-item:hover { border-color: var(--gold); transform: translateX(-5px); }
+        :root:lang(fr) .contact-item:hover { transform: translateX(5px); }
+        .contact-item i { font-size: 30px; color: var(--gold); }
+        .contact-item div h4 { font-size: 1.1rem; margin-bottom: 5px; }
+        .contact-item div p { color: var(--gray); font-size: 0.95rem; }
+
+        /* Contact Form */
+        .contact-form {
+            background: var(--darker); padding: 40px;
+            border-radius: 15px; border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        .form-group { margin-bottom: 20px; }
+        .form-control {
+            width: 100%; padding: 15px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px; color: var(--white);
+            font-family: inherit; font-size: 0.95rem;
+            transition: var(--transition);
+        }
+        .form-control:focus {
+            outline: none; border-color: var(--gold);
+            background: rgba(255, 255, 255, 0.05);
+        }
+        textarea.form-control { resize: vertical; min-height: 120px; }
+        .submit-btn { width: 100%; justify-content: center; margin-top: 10px; }
+
+        /* --- Footer --- */
+        footer {
+            padding: 40px 5% 20px;
+            background: var(--black);
+            text-align: center;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        .social-links { margin-bottom: 20px; display: flex; justify-content: center; gap: 20px; }
+        .social-links a {
+            width: 45px; height: 45px; border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex; align-items: center; justify-content: center;
+            color: var(--gold); font-size: 18px; transition: var(--transition);
+            text-decoration: none;
+        }
+        .social-links a:hover { background: var(--gold); color: var(--black); transform: translateY(-5px); }
+        .copyright { color: var(--gray); font-size: 0.9rem; }
+
+        /* --- Responsive --- */
+        @media (max-width: 992px) {
+            .contact-container { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; } /* يمكن إضافة قائمة هامبرغر لاحقاً */
+            .hero h1 { font-size: 2.5rem; }
+            .hero p.desc { font-size: 1rem; }
+            .cta-group { flex-direction: column; }
+            .btn { width: 100%; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="header">
+        <a href="#" class="logo">
+            <i class="fas fa-microchip"></i>
+            <span>Nouveau Tech</span>
+        </a>
+        
+        <ul class="nav-links">
+            <li><a href="#home"><span class="ar-text">الرئيسية</span><span class="fr-text">Accueil</span></a></li>
+            <li><a href="#services"><span class="ar-text">خدماتنا</span><span class="fr-text">Services</span></a></li>
+            <li><a href="#why-us"><span class="ar-text">المميزات</span><span class="fr-text">Avantages</span></a></li>
+            <li><a href="#contact"><span class="ar-text">تواصل معنا</span><span class="fr-text">Contact</span></a></li>
+        </ul>
+
+        <div class="nav-controls">
+            <button class="lang-toggle" onclick="toggleLanguage()">
+                <i class="fas fa-globe"></i> <span id="lang-text">FR</span>
+            </button>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 class="animate-on-scroll">
+                <span class="ar-text">حلول رقمية <span class="gold-text">متكاملة</span></span>
+                <span class="fr-text">Solutions Digitales <span class="gold-text">Intégrées</span></span>
+            </h1>
+            
+            <p class="slogan animate-on-scroll" style="transition-delay: 0.1s;">
+                <span class="ar-text">ابتكار • بساطة • نجاح</span>
+                <span class="fr-text">Innovation • Simplicité • Succès</span>
+            </p>
+            
+            <p class="desc animate-on-scroll" style="transition-delay: 0.2s;">
+                <span class="ar-text">منصة واحدة تجمع بين إدارة المطاعم، تسيير محطات الوقود، والتواجد القوي على خرائط جوجل. البنية التحتية الرقمية التي يحتاجها عملك للنمو.</span>
+                <span class="fr-text">Une seule plateforme pour gérer vos restaurants, stations-service et votre visibilité Google Maps. L'infrastructure digitale dont votre entreprise a besoin.</span>
+            </p>
+
+            <div class="cta-group animate-on-scroll" style="transition-delay: 0.3s;">
+                <a href="https://wa.me/212000000000" target="_blank" class="btn btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                    <span class="ar-text">واتساب</span><span class="fr-text">WhatsApp</span>
+                </a>
+                <a href="#contact" class="btn btn-gold">
+                    <i class="fas fa-paper-plane"></i>
+                    <span class="ar-text">اطلب عرضاً</span><span class="fr-text">Demander un Devis</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- باقي الأقسام كما هي بدون تغيير -->
+    <section class="section-padding bg-dark" id="services">
+        <div class="section-title animate-on-scroll">
+            <h2>
+                <span class="ar-text">خدماتنا الرئيسية</span><span class="fr-text">Nos Services Principaux</span>
+            </h2>
+            <div class="gold-line"></div>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card animate-on-scroll">
+                <div class="service-icon"><i class="fas fa-qrcode"></i></div>
+                <h3>
+                    <span class="ar-text">QR للمطاعم والمقاهي</span>
+                    <span class="fr-text">QR pour Restaurants & Cafés</span>
+                </h3>
+                <p>
+                    <span class="ar-text">قوائم رقمية تفاعلية وإدارة سلسة للطلبات لتحسين تجربة الزبون.</span>
+                    <span class="fr-text">Menus digitaux interactifs et gestion fluide des commandes.</span>
+                </p>
+                <ul>
+                    <li><i class="fas fa-check"></i> <span class="ar-text">إنشاء قائمة رقمية جذابة</span><span class="fr-text">Menu digital attractif</span></li>
+                    <li><i class="fas fa-check"></i> <span class="ar-text">استقبال الطلبات من الطاولة</span><span class="fr-text">Commandes depuis la table</span></li>
+                    <li><i class="fas fa-check"></i> <span class="ar-text">إحصائيات وتقارير المبيعات</span><span class="fr-text">Statistiques des ventes</span></li>
+                </ul>
+            </div>
+
+            <div class="service-card animate-on-scroll" style="transition-delay: 0.1s;">
+                <div class="service-icon"><i class="fas fa-gas-pump"></i></div>
+                <h3>
+                    <span class="ar-text">تسيير محطات الوقود</span>
+                    <span class="fr-text">Gestion des Stations-Service</span>
+                </h3>
+                <p>
+                    <span class="ar-text">برنامج متكامل للتحكم في الخزانات، المضخات، ومراقبة المداخيل.</span>
+                    <span class="fr-text">Logiciel complet pour le contrôle des cuves et des recettes.</span>
+                </p>
+                <ul>
+                    <li><i class="fas fa-check"></i> <span class="ar-text">مراقبة المخزون لحظياً</span><span class="fr-text">Suivi des stocks en temps réel</span></li>
+                    <li><i class="fas fa-check"></i> <span class="ar-text">إدارة الورديات والموظفين</span><span class="fr-text">Gestion des équipes</span></li>
+                    <li><i class="fas fa-check"></i> <span class="ar-text">تنبيهات تلقائية للنقص</span><span class="fr-text">Alertes de niveau bas</span></li>
+                </ul>
+            </div>
+
+            <div class="service-card animate-on-scroll" style="transition-delay: 0.2s;">
+                <div class="service-icon"><i class="fab fa-google"></i></div>
+                <h3>
+                    <span class="ar-text">الظهور على خرائط جوجل</span>
+                    <span class="fr-text">Visibilité Google Maps</span>
+                </h3>
+                <p>
+                    <span class="ar-text">عزز تواجدك المحلي واجذب المزيد من الزبائن عبر تحسين ملفك التجاري.</span>
+                    <span class="fr-text">Renforcez votre présence locale et attirez plus de clients.</span>
+                </p>
+                <ul>
+                    <li><i class="fas fa-check"></i> <span class="ar-text">إنشاء وتوثيق الملف التجاري</span><span class="fr-text">Création & validation de fiche</span></li>
+                    <li><i class="fas fa-check"></i> <span class="ar-text">إدارة التقييمات والردود</span><span class="fr-text">Gestion des avis clients</span></li>
+                    <li><i class="fas fa-check"></i> <span class="ar-text">تحسين محركات البحث المحلية</span><span class="fr-text">Optimisation SEO local</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding bg-black" id="why-us">
+        <div class="section-title animate-on-scroll">
+            <h2>
+                <span class="ar-text">لماذا نحن؟</span><span class="fr-text">Pourquoi Nous Choisir ?</span>
+            </h2>
+            <div class="gold-line"></div>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-item animate-on-scroll">
+                <i class="fas fa-shield-alt"></i>
+                <h4>
+                    <span class="ar-text">أمان وموثوقية</span><span class="fr-text">Sécurité & Fiabilité</span>
+                </h4>
+                <p>
+                    <span class="ar-text">نظام محمي بأحدث التقنيات لضمان سلامة بياناتك التجارية.</span>
+                    <span class="fr-text">Système protégé pour garantir la sécurité de vos données.</span>
+                </p>
+            </div>
+            <div class="feature-item animate-on-scroll" style="transition-delay: 0.1s;">
+                <i class="fas fa-headset"></i>
+                <h4>
+                    <span class="ar-text">دعم فني مستمر</span><span class="fr-text">Support Technique</span>
+                </h4>
+                <p>
+                    <span class="ar-text">فريق تقني متواجد دائماً لحل أي مشكلة وضمان استمرارية عملك.</span>
+                    <span class="fr-text">Une équipe toujours disponible pour assurer la continuité de votre travail.</span>
+                </p>
+            </div>
+            <div class="feature-item animate-on-scroll" style="transition-delay: 0.2s;">
+                <i class="fas fa-laptop-code"></i>
+                <h4>
+                    <span class="ar-text">حلول مخصصة</span><span class="fr-text">Solutions Sur-Mesure</span>
+                </h4>
+                <p>
+                    <span class="ar-text">نطوع التكنولوجيا لتناسب احتياجات البنية التحتية الرقمية لعملك.</span>
+                    <span class="fr-text">Nous adaptons la technologie à vos besoins d'infrastructure.</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding bg-dark" id="contact">
+        <div class="section-title animate-on-scroll">
+            <h2>
+                <span class="ar-text">تواصل معنا</span><span class="fr-text">Contactez-nous</span>
+            </h2>
+            <div class="gold-line"></div>
+        </div>
+
+        <div class="contact-container">
+            <div class="contact-info animate-on-scroll">
+                <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <h4><span class="ar-text">الهاتف</span><span class="fr-text">Téléphone</span></h4>
+                        <p dir="ltr">+212 600 000 000</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4><span class="ar-text">البريد الإلكتروني</span><span class="fr-text">Email</span></h4>
+                        <p>nouveautech48@gmail.com</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4><span class="ar-text">العنوان</span><span class="fr-text">Adresse</span></h4>
+                        <p>
+                            <span class="ar-text">وجدة، المملكة المغربية</span>
+                            <span class="fr-text">Oujda, Maroc</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form animate-on-scroll" style="transition-delay: 0.2s;">
+                <form onsubmit="event.preventDefault();">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="الاسم الكامل / Nom Complet" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" placeholder="البريد الإلكتروني / Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" placeholder="رسالتك / Votre Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-gold submit-btn">
+                        <span class="ar-text">إرسال الرسالة</span><span class="fr-text">Envoyer le Message</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <p class="copyright">
+            &copy; <span id="year"></span> Nouveau Tech. 
+            <span class="ar-text">جميع الحقوق محفوظة.</span>
+            <span class="fr-text">Tous droits réservés.</span>
+        </p>
+    </footer>
+
+    <script>
+        // تحديث السنة التلقائي في الفوتر
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // نظام تبديل اللغات
+        let currentLang = 'ar';
+        
+        function toggleLanguage() {
+            currentLang = currentLang === 'ar' ? 'fr' : 'ar';
+            
+            // تحديث خصائص الـ HTML لتفعيل الـ CSS المخصص
+            document.documentElement.lang = currentLang;
+            document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+            
+            // تغيير نص الزر
+            document.getElementById('lang-text').textContent = currentLang === 'ar' ? 'FR' : 'AR';
+        }
+
+        // ✨ Dynamic Sticky Header - التحسين الجديد
+        function handleScroll() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        }
+
+        // تفعيل مراقبة التمرير
+        window.addEventListener('scroll', handleScroll);
+        // تشغيل الفنكشن عند تحميل الصفحة
+        handleScroll();
+
+        // تفعيل الحركات عند التمرير (Scroll Animations)
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                    // إيقاف المراقبة بعد ظهور العنصر لتحسين الأداء
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
