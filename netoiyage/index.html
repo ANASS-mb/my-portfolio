@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" data-i18n-attr="content" data-i18n="meta_description"
+    content="Services de nettoyage professionnels à Oujda, Maroc. Nettoyage résidentiel, commercial, en profondeur et après construction. Demandez un devis gratuit !" />
+  <title data-i18n="page_title">Netoiyage – Services de Nettoyage Professionnels à Oujda, Maroc</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Google Fonts – Arabic support -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=Noto+Sans+Arabic:wght@300;400;500;600;700;800&display=swap" />
+  <!-- Phosphor Icons -->
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css" />
+</head>
+
+<body>
+
+  <!-- ============================
+       HEADER / NAVIGATION
+       ============================ -->
+  <header class="header" id="header">
+    <div class="container">
+      <a href="#home" class="logo" aria-label="Netoiyage Home">
+        <span class="logo-icon"><i class="ph ph-broom"></i></span>
+        Netoiyage
+      </a>
+
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home" class="active" data-i18n="nav_home">Accueil</a></li>
+          <li><a href="#services" data-i18n="nav_services">Services</a></li>
+          <li><a href="#why-us" data-i18n="nav_about">À Propos</a></li>
+          <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+          <li class="nav-cta"><a href="#contact" class="btn btn-primary" data-i18n="nav_cta">Devis Gratuit</a></li>
+        </ul>
+      </nav>
+
+      <!-- Language Switcher -->
+      <div class="lang-switcher" id="langSwitcher">
+        <button class="lang-btn active" data-lang="fr" id="langFr" aria-label="Français">
+          <span class="lang-flag">🇫🇷</span>
+          <span class="lang-code">FR</span>
+        </button>
+        <button class="lang-btn" data-lang="ar" id="langAr" aria-label="العربية">
+          <span class="lang-flag">🇲🇦</span>
+          <span class="lang-code">ع</span>
+        </button>
+      </div>
+
+      <div class="hamburger" id="hamburger" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile overlay -->
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+
+  <!-- ============================
+       HERO SECTION
+       ============================ -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <img src="hero-bg.png" alt="Services de nettoyage professionnels" width="1920" height="1080" />
+    </div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+    </div>
+
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="dot"></span>
+          <span data-i18n="hero_badge">Nouvellement créée — Standards modernes, énergie nouvelle</span>
+        </div>
+
+        <h1 data-i18n="hero_title">Services de Nettoyage Professionnels à <span>Oujda</span></h1>
+
+        <p class="hero-subtitle" data-i18n="hero_subtitle">
+          Votre partenaire de confiance pour des espaces impeccables. Nous offrons un nettoyage méticuleux avec des
+          produits écologiques — pour votre bien-être.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">
+            <i class="ph ph-chat-circle-dots"></i>
+            <span data-i18n="hero_cta">Demander un Devis Gratuit</span>
+          </a>
+          <a href="#services" class="btn btn-white">
+            <i class="ph ph-arrow-down"></i>
+            <span data-i18n="hero_cta_secondary">Nos Services</span>
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <h3 data-target="100" data-suffix="%">0</h3>
+            <p data-i18n="stat_satisfaction">Taux de Satisfaction</p>
+          </div>
+          <div class="hero-stat">
+            <h3 data-target="24" data-suffix="/7">0</h3>
+            <p data-i18n="stat_availability">Disponibilité</p>
+          </div>
+          <div class="hero-stat">
+            <h3 data-target="50" data-suffix="+">0</h3>
+            <p data-i18n="stat_clients">Clients Satisfaits</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       SERVICES SECTION
+       ============================ -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="services-header reveal">
+        <span class="section-label" data-i18n="services_label">Nos Services</span>
+        <h2 class="section-title" data-i18n="services_title">Des Solutions de Nettoyage Sur Mesure</h2>
+        <p class="section-subtitle" data-i18n="services_subtitle">Du ménage quotidien au nettoyage en profondeur, nous
+          traitons tout avec précision et soin.</p>
+      </div>
+
+      <div class="services-grid reveal-stagger">
+        <!-- Card 1 -->
+        <div class="service-card">
+          <div class="service-icon blue">
+            <i class="ph ph-house-line"></i>
+          </div>
+          <h3 data-i18n="service1_title">Nettoyage Résidentiel</h3>
+          <p data-i18n="service1_desc">Ménage régulier, aide au linge et désinfection de la cuisine — gardez votre
+            espace de vie frais et accueillant chaque jour.</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="service-card">
+          <div class="service-icon green">
+            <i class="ph ph-buildings"></i>
+          </div>
+          <h3 data-i18n="service2_title">Bureaux &amp; Commercial</h3>
+          <p data-i18n="service2_desc">Maintenez un environnement de travail impeccable. Nous nettoyons bureaux, espaces
+            commerciaux et locaux professionnels selon vos horaires.</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="service-card">
+          <div class="service-icon purple">
+            <i class="ph ph-hard-hat"></i>
+          </div>
+          <h3 data-i18n="service3_title">Après Construction</h3>
+          <p data-i18n="service3_desc">Élimination de la poussière, des débris et des résidus après rénovation. Nous
+            préparons votre espace pour une utilisation immédiate.</p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="service-card">
+          <div class="service-icon amber">
+            <i class="ph ph-sparkle"></i>
+          </div>
+          <h3 data-i18n="service4_title">Nettoyage en Profondeur</h3>
+          <p data-i18n="service4_desc">Nettoyage intensif de A à Z : tapis, meubles rembourrés, cuisines et salles de
+            bain — idéal pour un rafraîchissement saisonnier.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       WHY CHOOSE US
+       ============================ -->
+  <section class="why-us" id="why-us">
+    <div class="container">
+      <div class="why-us-wrapper">
+        <!-- Left - Visual -->
+        <div class="why-us-visual reveal">
+          <div class="why-us-image-card">
+            <div class="big-number" data-i18n="whyus_bignumber">Nouvelle</div>
+            <div class="big-label" data-i18n="whyus_biglabel">Entreprise Fraîchement Créée à Oujda — Région de
+              l'Oriental</div>
+          </div>
+          <div class="trust-badge">
+            <div class="trust-badge-icon">
+              <i class="ph-fill ph-seal-check"></i>
+            </div>
+            <div class="trust-badge-text">
+              <span class="trust-main" data-i18n="trust_title">Vérifiée &amp; Assurée</span>
+              <span data-i18n="trust_sub">Entreprise de nettoyage agréée</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right - Features -->
+        <div class="reveal">
+          <span class="section-label" data-i18n="whyus_label">Pourquoi Nous Choisir</span>
+          <h2 class="section-title" data-i18n="whyus_title">L'Équipe de Nettoyage de Confiance à Oujda</h2>
+          <p class="section-subtitle" style="margin-bottom: 2rem;" data-i18n="whyus_subtitle">
+            Nouvellement créée avec des normes modernes, nous combinons expertise locale et standards professionnels
+            pour des résultats visibles.
+          </p>
+
+          <div class="why-us-features">
+            <div class="feature-item">
+              <div class="feature-icon blue-bg">
+                <i class="ph ph-shield-check"></i>
+              </div>
+              <div class="feature-text">
+                <h4 data-i18n="feature1_title">Fiable &amp; Digne de Confiance</h4>
+                <p data-i18n="feature1_desc">Personnel vérifié et en uniforme, toujours à l'heure. Votre sécurité est
+                  notre priorité.</p>
+              </div>
+            </div>
+
+            <div class="feature-item">
+              <div class="feature-icon green-bg">
+                <i class="ph ph-leaf"></i>
+              </div>
+              <div class="feature-text">
+                <h4 data-i18n="feature2_title">Produits Écologiques</h4>
+                <p data-i18n="feature2_desc">Nous utilisons des agents de nettoyage biodégradables et non toxiques, sûrs
+                  pour votre famille, vos animaux et l'environnement.</p>
+              </div>
+            </div>
+
+            <div class="feature-item">
+              <div class="feature-icon amber-bg">
+                <i class="ph ph-certificate"></i>
+              </div>
+              <div class="feature-text">
+                <h4 data-i18n="feature3_title">Professionnels Formés</h4>
+                <p data-i18n="feature3_desc">Notre équipe suit une formation rigoureuse sur les dernières techniques de
+                  nettoyage et protocoles de sécurité.</p>
+              </div>
+            </div>
+
+            <div class="feature-item">
+              <div class="feature-icon purple-bg">
+                <i class="ph ph-map-pin-area"></i>
+              </div>
+              <div class="feature-text">
+                <h4 data-i18n="feature4_title">Présence Locale</h4>
+                <p data-i18n="feature4_desc">Fièrement basée à Oujda, nous comprenons les besoins des foyers et
+                  entreprises de toute la région de l'Oriental.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       CONTACT SECTION
+       ============================ -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-header reveal">
+        <span class="section-label" data-i18n="contact_label">Contactez-Nous</span>
+        <h2 class="section-title" data-i18n="contact_title">Demandez un Devis Gratuit</h2>
+        <p class="section-subtitle" data-i18n="contact_subtitle">Dites-nous ce dont vous avez besoin et nous vous
+          répondrons sous 24 heures — ou contactez-nous instantanément via WhatsApp.</p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Form -->
+        <div class="contact-form-card reveal">
+          <form id="contactForm">
+            <div id="formBody">
+              <div class="form-group">
+                <label for="name" data-i18n="form_name">Nom Complet</label>
+                <input type="text" id="name" name="name" data-i18n-attr="placeholder"
+                  data-i18n-placeholder="form_name_ph" placeholder="ex. Ahmed Benali" required />
+              </div>
+
+              <div class="form-group">
+                <label for="phone" data-i18n="form_phone">Numéro de Téléphone</label>
+                <input type="tel" id="phone" name="phone" data-i18n-attr="placeholder"
+                  data-i18n-placeholder="form_phone_ph" placeholder="ex. +212 6XX XXX XXX" required />
+              </div>
+
+              <div class="form-group">
+                <label for="service" data-i18n="form_service">Service Souhaité</label>
+                <select id="service" name="service" required>
+                  <option value="" disabled selected data-i18n="form_select_default">Sélectionnez un service…</option>
+                  <option value="residential" data-i18n="form_opt_residential">Nettoyage Résidentiel</option>
+                  <option value="commercial" data-i18n="form_opt_commercial">Bureaux &amp; Commercial</option>
+                  <option value="post-construction" data-i18n="form_opt_postconstruction">Après Construction</option>
+                  <option value="deep-cleaning" data-i18n="form_opt_deep">Nettoyage en Profondeur</option>
+                  <option value="other" data-i18n="form_opt_other">Autre</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="message" data-i18n="form_message">Message</label>
+                <textarea id="message" name="message" data-i18n-attr="placeholder"
+                  data-i18n-placeholder="form_message_ph" placeholder="Décrivez vos besoins en nettoyage…"
+                  rows="4"></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-submit" id="submitBtn">
+                <i class="ph ph-paper-plane-tilt"></i>
+                <span data-i18n="form_submit">Envoyer la Demande</span>
+              </button>
+            </div>
+
+            <!-- Success State -->
+            <div class="form-success" id="formSuccess">
+              <div class="success-icon">✅</div>
+              <h4 data-i18n="form_success_title">Message Envoyé !</h4>
+              <p data-i18n="form_success_msg">Merci de nous avoir contactés. Nous vous répondrons sous 24 heures.</p>
+            </div>
+          </form>
+        </div>
+
+        <!-- Info Sidebar -->
+        <div class="contact-info-card reveal">
+          <div class="info-box">
+            <div class="info-box-icon">
+              <i class="ph ph-map-pin"></i>
+            </div>
+            <div>
+              <h4 data-i18n="info_location_title">Notre Adresse</h4>
+              <p data-i18n="info_location_text">Oujda, Région de l'Oriental<br />Maroc</p>
+            </div>
+          </div>
+
+          <div class="info-box">
+            <div class="info-box-icon">
+              <i class="ph ph-phone"></i>
+            </div>
+            <div>
+              <h4 data-i18n="info_phone_title">Appelez-Nous</h4>
+              <p data-i18n="info_phone_text">+212 6XX XXX XXX<br />Lun – Sam, 8h – 19h</p>
+            </div>
+          </div>
+
+          <div class="info-box">
+            <div class="info-box-icon">
+              <i class="ph ph-envelope-simple"></i>
+            </div>
+            <div>
+              <h4 data-i18n="info_email_title">Email</h4>
+              <p>contact@netoiyage.ma</p>
+            </div>
+          </div>
+
+          <!-- WhatsApp CTA -->
+          <div class="whatsapp-box">
+            <h4 data-i18n="wa_title">💬 Vous préférez WhatsApp ?</h4>
+            <p data-i18n="wa_desc">Discutez avec nous instantanément pour un devis rapide ou toute question.</p>
+            <a href="https://wa.me/212600000000?text=Bonjour%20Netoiyage!%20Je%20souhaite%20un%20devis%20gratuit."
+              target="_blank" rel="noopener" class="btn btn-whatsapp" id="whatsappBtn">
+              <i class="ph ph-whatsapp-logo"></i>
+              <span data-i18n="wa_btn">Discuter sur WhatsApp</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       FOOTER
+       ============================ -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand -->
+        <div class="footer-brand">
+          <a href="#home" class="logo">
+            <span class="logo-icon"><i class="ph ph-broom"></i></span>
+            Netoiyage
+          </a>
+          <p data-i18n="footer_desc">Votre partenaire de confiance pour le nettoyage professionnel à Oujda et la région
+            de l'Oriental. Espaces impeccables, visages heureux.</p>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h5 data-i18n="footer_links_title">Liens Rapides</h5>
+          <div class="footer-links">
+            <a href="#home" data-i18n="nav_home">Accueil</a>
+            <a href="#services" data-i18n="nav_services">Services</a>
+            <a href="#why-us" data-i18n="nav_about">À Propos</a>
+            <a href="#contact" data-i18n="nav_contact">Contact</a>
+          </div>
+        </div>
+
+        <!-- Social -->
+        <div>
+          <h5 data-i18n="footer_social_title">Suivez-Nous</h5>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook" id="socialFacebook"><i class="ph ph-facebook-logo"></i></a>
+            <a href="#" aria-label="Instagram" id="socialInstagram"><i class="ph ph-instagram-logo"></i></a>
+            <a href="#" aria-label="TikTok" id="socialTiktok"><i class="ph ph-tiktok-logo"></i></a>
+            <a href="https://wa.me/212600000000" target="_blank" rel="noopener" aria-label="WhatsApp"
+              id="socialWhatsapp">
+              <i class="ph ph-whatsapp-logo"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p><span data-i18n="footer_copy">© </span><span id="currentYear"></span> Netoiyage. <span
+            data-i18n="footer_rights">Tous droits réservés.</span></p>
+        <p data-i18n="footer_made">Fait avec NOUVEAU TECH à Oujda, Maroc</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/212600000000?text=Bonjour%20Netoiyage!%20Je%20souhaite%20un%20devis%20gratuit." target="_blank"
+    rel="noopener" class="whatsapp-float" aria-label="Chat on WhatsApp" id="whatsappFloat">
+    <i class="ph-fill ph-whatsapp-logo"></i>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
