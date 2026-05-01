@@ -1,0 +1,36 @@
+body {
+    font-family:Arial,sans-serif;
+    background-color: #306ea5;
+    color:#cf4141;
+    margin:0;
+    padding: 20px;
+    text-align: center;
+    line-height: 1.6;
+
+}
+h1{
+    color:#1644af;
+    font-size:2.8rem;
+    margin-bottom: 20px;
+}
+p{
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    max-width: 600px;
+    font-size: 0.9rem
+}
+footer {
+    margin-top:80px;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    font-size:0.9rem;
+}
+footer p {
+    margin: 0;
+    color: white;
+} 
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
